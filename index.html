@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Pack - Catálogo de Envases</title>
+    <link rel="icon" type=".png" style="user-select: none; -webkit-user-select: none;" href="logo.png">
+
+    <!-- Fuente de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- ENLACE AL ARCHIVO EXTERNO DE CSS -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <header class="header-container transition_2">
+      <div class="header-text">
+        <h1 class="logo-titulo">Golden Pack</h1>
+        <p class="logo-eslogan">El toque elegante y dorado para la presentación de tus creaciones</p>
+        <div class="menu">
+          <button class="caida-menu">Menú</button>
+          <div class="contenido-menu">
+            <a href="index.html">Inicio</a>
+            <a href="galeria.html">Galería</a>
+            <a href="https://wa.me/584241208435" target="_blank" rel="noopener noreferrer" class="menu-whatsapp">Contacto vía WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <img src="logo.png" alt="Logo Golden Pack" class="header-logo">
+    </header>
+
+    <main class="catalog-container">
+      <h2 class="section-title transition_1">Nuestros Envases</h2>
+      <!-- Contenedor donde JavaScript inyectará dinámicamente las tarjetas -->
+      <div class="grid" id="catalog-grid"></div>
+    </main>
+
+    <!-- VENTANA MODAL (POP-UP) CON GALERÍA DINÁMICA -->
+    <div class="modal-overlay">
+      <div class="container-2">
+        <button class="btn-cerrar">&times;</button>
+        
+        <h3 class="card-title">Título del Envase</h3>
+        <p class="modal-desc">Detalles técnicos y especificaciones del empaque.</p>
+        
+        <!-- CARRUSEL DESLIZABLE -->
+        <div class="modal-carrusel">
+          <button class="carrusel-btn prev">&lsaquo;</button>
+          <img class="carrusel-img" src="" alt="Imagen del envase">
+          <button class="carrusel-btn next">&rsaquo;</button>
+        </div>
+        
+        <!-- Indicador de foto actual (Opcional, e.g. 1 / 3) -->
+        <p class="carrusel-contador">1 / 3</p>
+        <a href="" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-modal">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <footer class="transition_2">
+      <p>&copy; 2026 Golden Pack - Todos los derechos reservados.</p>
+      <div class="legal-links">
+        <a href="salubridad.html" target="_blank" rel="noopener noreferrer">Normas de Salubridad</a> | 
+        <a href="terminos.html" target="_blank" rel="noopener noreferrer">Términos de Servicio</a>
+      </div>
+    </footer>
+
+    <!-- ENLACE AL ARCHIVO EXTERNO DE JAVASCRIPT -->
+    <script src="script.js"></script>
+  </body>
+</html>
