@@ -34,7 +34,6 @@ body {
 .header-container {
   background: linear-gradient(135deg, var(--primary-gold), var(--accent-orange));
   color: var(--text-light);
-  padding: 1.5rem 2rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
