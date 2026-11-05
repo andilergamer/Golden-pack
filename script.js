@@ -4,19 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             titulo: "Capacillos",
             desc: "El molde ideal para cualquier ocasión",
-            desc_detallada: `Perfectos para una reunión, movilidad y reposterías.
+            desc_detallada: `Perfectos para una reunión, una receta rápida y repostería. Hechos con papel encerado.
 
-Tenemos tamaños que abarcan desde el 6 al 12 con las siguientes características:
+<strong>Se vende solo por caja</strong>. Cada caja contiene 20 paquetes de 1000 unidades por paquete.
+Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas:
 
-Número  |    Diámetro    |      Altura
-• #6         Base de 2.5 cm     1.75 cm
-• #7         Base de 3 cm        2 cm
-• #8         Base de 3.5 cm     2.25 cm
-• #9         Base de 4 cm        2.5 cm
-• #10       Base de 4.5 cm     2.75 cm
-• #11       Base de 5 cm        3 cm
-• #12       Base de 5.5 cm     3.25 cm`,
-            whatsapp: "https://wa.me/584120000000?text=Hola,%20estoy%20interesado%20en%20los%20capacillos",
+<strong>Número</strong>  |    <strong>Diámetro</strong>    |      <strong>Altura</strong>
+• #6           Base de 2.5 cm     1.75 cm
+• #7           Base de 3 cm        2 cm
+• #8           Base de 3.5 cm     2.25 cm
+• #9           Base de 4 cm        2.5 cm
+• #10         Base de 4.5 cm     2.75 cm
+• #11         Base de 5 cm        3 cm
+• #12         Base de 5.5 cm     3.25 cm`,
+            whatsapp: "https://wa.me/584127238412?text=Hola,%20estoy%20interesado%20en%20los%20capacillos",
             imagenes: [
                 "images/molde1-0.png",
                 "images/molde1-1.png",
@@ -101,7 +102,7 @@ Número  |    Diámetro    |      Altura
                 evento.preventDefault();
 
                 if (modalTitulo) modalTitulo.textContent = envase.titulo;
-                if (modalDesc) modalDesc.textContent = envase.desc_detallada; // Carga la descripción detallada
+                if (modalDesc) modalDesc.innerHTML = envase.desc_detallada; // Carga la descripción detallada
                 if (modalWhatsapp) modalWhatsapp.href = envase.whatsapp;
 
                 imagenesActuales = envase.imagenes;
@@ -123,11 +124,13 @@ Número  |    Diámetro    |      Altura
             envase.imagenes.forEach((imgUrl, index) => {
                 const article = document.createElement('article');
                 article.classList.add('galeria-card', 'transition_3');
+                
+                const tituloMinusculaGaleria = envase.titulo ? envase.titulo.toLowerCase() : "";
 
                 article.innerHTML = `
-                    <img src="${imgUrl}" alt="Modelo ${envase.titulo} - Vista ${index + 1}" class="card-img galeria-trigger" style="cursor: pointer;">
+                    <img src="${imgUrl}" alt="Molde ${envase.titulo} - Vista ${index + 1}" class="card-img galeria-trigger" style="cursor: pointer;">
                     <div class="galeria-card-content">
-                        <h3 class="galeria-card-title">Modelo ${envase.titulo}</h3>
+                        <h3 class="galeria-card-title">Molde ${tituloMinusculaGaleria}</h3>
                     </div>
                 `;
                 // Al hacer clic en la imagen de la galería, se abre el modal existente adaptado
@@ -136,7 +139,7 @@ Número  |    Diámetro    |      Altura
                     if (carruselImg && modalOverlay) {
                         carruselImg.src = imgUrl;
                         // Adaptamos el modal de la galería ocultando controles de carrusel/whatsapp que no aplican aquí
-                        if (modalTitulo) modalTitulo.textContent = `Modelo ${envase.titulo} - Vista ${index + 1}`;
+                        if (modalTitulo) modalTitulo.textContent = `Molde ${tituloMinusculaGaleria} - Vista ${index + 1}`;
                         if (modalDesc) modalDesc.style.display = 'none';
                         if (modalWhatsapp) modalWhatsapp.style.display = 'none';
                         if (btnPrev) btnPrev.style.display = 'none';
