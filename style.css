@@ -48,7 +48,6 @@ body {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
 .header-left h1 {
   margin-left: 2rem;
   margin-top: 1rem;
@@ -56,9 +55,6 @@ body {
 }
 
 .header-left p {
-=======
-.header-left h1, p {
->>>>>>> 01f7c6a9a2e93aea6f1ef5a1ae35fb6de8195585
   margin-left: 2rem;
   margin-top: 1rem;
   padding-right: 140px;
@@ -422,11 +418,7 @@ footer a:hover {
   background-color: #FFFDF9;
   color: #fdbc16;
   padding: 0.4rem 1.15rem 0.4rem 1.15rem;
-<<<<<<< HEAD
   font-size: 1.2rem;
-=======
-  font-size: 1rem;
->>>>>>> 01f7c6a9a2e93aea6f1ef5a1ae35fb6de8195585
   border: solid transparent;
   border-radius: 0.15rem; 
   cursor: pointer;
@@ -463,10 +455,7 @@ footer a:hover {
   width: 100%;
   padding: 0.7rem 0.5rem 0.7rem 1.4rem;
   font-weight: 600;
-<<<<<<< HEAD
   font-size: 1.05rem;
-=======
->>>>>>> 01f7c6a9a2e93aea6f1ef5a1ae35fb6de8195585
   transition: background 0.5s ease;
 }
 

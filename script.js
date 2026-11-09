@@ -23,7 +23,6 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
                 "images/molde1-1.png",
                 "images/molde1-2.png",
                 "images/molde1-3.png",
-<<<<<<< HEAD
                 "images/molde1-4.png",
                 "images/molde1-5.png",
                 "images/molde1-6.png",
@@ -90,31 +89,6 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
                 "images/molde3-7.png",
                 "images/molde3-8.png",
                 "images/molde3-9.png"
-=======
-                "images/molde1-4.png"
-            ]
-        },
-        {
-            titulo: "2",
-            desc: "desc_2",
-            desc_detallada: "desc_detallada 2",
-            whatsapp: "https://wa.me/584120000000?text=Hola,%20estoy%20interesado%20en%20el%20modelo%202",
-            imagenes: [
-                "https://via.placeholder.com/400x250/FF000/2C1D11?text=Caja+Foto+1",
-                "https://via.placeholder.com/400x250/FF000/2C1D11?text=Caja+Foto+2",
-                "https://via.placeholder.com/400x250/FF000/FFFDF9?text=Caja+Foto+3"
-            ]
-        },
-        {
-            titulo: "3",
-            desc: "desc_3",
-            desc_detallada: "desc_detallada 3",
-            whatsapp: "https://wa.me/584120000000?text=Hola,%20estoy%20interesado%20en%20el%20modelo%203",
-            imagenes: [
-                "https://via.placeholder.com/400x250/FF000/2C1D11?text=Tarta+Foto+1",
-                "https://via.placeholder.com/400x250/FF000/2C1D11?text=Tarta+Foto+2",
-                "https://via.placeholder.com/400x250/FF000/FFFDF9?text=Tarta+Foto+3"
->>>>>>> 01f7c6a9a2e93aea6f1ef5a1ae35fb6de8195585
             ]
         }
     ];
