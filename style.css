@@ -1,0 +1,557 @@
+/* 1. VARIABLES GLOBALES */
+html {
+  overflow-y: scroll; /* Fuerza a que la barra de scroll siempre esté presente */
+}
+
+:root {
+  --primary-gold: #FFB800;
+  --accent-orange: #F5A623;
+  --bg-light: #FFFDF9;
+  --card-bg: #FFFFFF;
+  --text-dark: #2C1D11;
+  --text-muted: #666666;
+  --text-light: #FFFFFF;
+}
+
+/* 2. ESTILOS BASE Y UNIVERSALES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: linear-gradient(to left, #FFFDF9, #FAF4EB);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. ENCABEZADO (HEADER) */
+.header-container {
+  background: linear-gradient(135deg, var(--primary-gold), var(--accent-orange));
+  color: var(--text-light);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+}
+
+.header-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+<<<<<<< HEAD
+.header-left h1 {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  padding-right: 140px;
+}
+
+.header-left p {
+=======
+.header-left h1, p {
+>>>>>>> 01f7c6a9a2e93aea6f1ef5a1ae35fb6de8195585
+  margin-left: 2rem;
+  margin-top: 1rem;
+  padding-right: 140px;
+}
+
+.header-text {
+  width: 100%;
+  text-align: left;
+}
+
+.logo-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: translateX(-0.4rem);
+}
+
+.logo-eslogan {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  transform: translateX(-0.4rem);
+}
+
+.header-logo {
+  position: absolute;
+  top: 20px;
+  right: 3rem;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+}
+
+/* 4. CATÁLOGO Y TARJETAS */
+.catalog-container {
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  flex: 1;
+  width: 100%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--text-dark);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  border: 1px solid #F0E6D8;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: #EEE;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.card-content {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.btn-detalles {
+  background-color: var(--primary-gold);
+  color: var(--text-dark);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: center;
+  width: 100%;
+  display: block;
+  transition: background 0.2s ease;
+}
+
+.btn-detalles:hover {
+  background-color: var(--accent-orange);
+}
+
+/* 5. VENTANA MODAL Y CARRUSEL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none; 
+  user-select: none; 
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.modal-desc {
+  font-size: 0.96rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 230px;
+  padding-right: 5px;
+}
+
+.modal-overlay.activo {
+  opacity: 1;
+  pointer-events: auto;
+  user-select: text; 
+}
+
+.modal-carrusel {
+  position: relative;
+  width: 100%;
+  height: 310px; /* Altura máxima controlada para que no rompa el diseño */
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EEE;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.carrusel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Muestra la imagen completa sin recortarla ni estirarla */
+  pointer-events: none;
+  -webkit-user-drag: none;
+  transition: opacity 0.3s ease;
+}
+
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.2rem 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+  user-select: none;
+  transition: background 0.2s ease;
+  z-index: 10;
+}
+
+.carrusel-btn:hover {
+  background: var(--primary-gold);
+  color: var(--text-dark);
+}
+
+.carrusel-btn.prev { left: 10px; }
+.carrusel-btn.next { right: 10px; }
+
+.carrusel-contador {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* BOTÓN DE WHATSAPP EN EL MODAL */
+.btn-whatsapp-modal {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  background-color: #25D366;
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-whatsapp-modal:hover {
+  background-color: #1EBE5D;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp-modal:active {
+  transform: translateY(0);
+}
+
+.container-2 {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  border-radius: 0.8rem;
+  padding: 2rem;
+  max-width: 720px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.btn-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+.modal-galeria {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-img-principal {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #EEE;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.modal-minis {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.miniatura {
+  width: calc(50% - 0.4rem);
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #EEE;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* 6. PIE DE PÁGINA (FOOTER) */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--text-dark);
+  color: var(--bg-light);
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin-bottom: 0.8rem;
+}
+
+.legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--primary-gold);
+  text-decoration: underline;
+}
+
+/* 7. CLASES DE TRANSICIÓN */
+.transition_1 {
+  opacity: 0;
+  transition: opacity 1.5s, transform 1.5s;
+}
+
+.transition_2 {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 1.5s, transform 1.5s;
+}
+
+.transition_3 {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.25s ease;
+}
+
+.container-3 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  position: relative;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.caida-menu {
+  background-color: #FFFDF9;
+  color: #fdbc16;
+  padding: 0.4rem 1.15rem 0.4rem 1.15rem;
+<<<<<<< HEAD
+  font-size: 1.2rem;
+=======
+  font-size: 1rem;
+>>>>>>> 01f7c6a9a2e93aea6f1ef5a1ae35fb6de8195585
+  border: solid transparent;
+  border-radius: 0.15rem; 
+  cursor: pointer;
+  text-align: left;
+}
+
+.contenido-menu {
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background: var(--accent-orange);
+  border-radius: 0.3rem;
+  overflow: hidden;
+  box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.2);
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0px);
+  transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, padding 0.5s ease;
+  z-index: 100;
+}
+
+.contenido-menu.activo {
+  width: 100%;
+  max-height: 150px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.contenido-menu a {
+  color: var(--text-dark);
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 0.7rem 0.5rem 0.7rem 1.4rem;
+  font-weight: 600;
+<<<<<<< HEAD
+  font-size: 1.05rem;
+=======
+>>>>>>> 01f7c6a9a2e93aea6f1ef5a1ae35fb6de8195585
+  transition: background 0.5s ease;
+}
+
+.contenido-menu a:hover {
+  background-color: #ffffff2d;
+}
+
+.menu-whatsapp {
+  background-color: #25D366;
+  color: var(--text-light) !important;
+  font-weight: 700;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.menu-whatsapp:hover {
+  background-color: #1EBE5D !important;
+}
+
+/* Estilos independientes para las tarjetas de la galería visual */
+.galeria-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  border: 1px solid #F0E6D8;
+  display: flex;
+  flex-direction: column;
+}
+
+.galeria-card .galeria-trigger {
+  pointer-events: auto !important;
+}
+
+.galeria-card-content {
+  padding: 0.6rem 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.galeria-card-title {
+  font-size: 1.15rem;
+  margin-bottom: 0;
+  width: 100%;
+  font-family: 'Playfair Display', serif;
+  color: var(--text-dark);
+}
+
+.lista-terminos {
+  line-height: 1.8;
+  padding-left: 1.5rem;
+  color: var(--text-muted);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.18rem;
+}
+
+.salubridad-paragraphs {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.18rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .header-left h1, p {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .contenido-menu {
+    width: 100%;
+  }
+  .header-logo {
+  top: 25px;
+  right: 1.4rem;
+}
+}
