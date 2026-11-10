@@ -124,7 +124,7 @@ body {
 
 .card:hover {
   transform: translateY(-4px) !important;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 12px 0.09rem #575757b2;
 }
 
 .card-img-container {
