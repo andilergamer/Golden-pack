@@ -47,7 +47,7 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
 • #10         Base de 4.5 cm     2.75 cm
 • #11         Base de 5 cm        3 cm
 • #12         Base de 5.5 cm     3.25 cm`,
-            whatsapp: "https://wa.me/584127238412?text=Hola,%20estoy%20interesado%20en%20los%20capacillos%20de%colores",
+            whatsapp: "https://wa.me/584127238412?text=Hola,%20estoy%20interesado%20en%20los%20capacillos%20de%20colores",
             imagenes: [
                 "images/molde2-0.png",
                 "images/molde2-1.png",
@@ -77,7 +77,7 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
 • #10         Base de 4.5 cm     2.75 cm
 • #11         Base de 5 cm        3 cm
 • #12         Base de 5.5 cm     3.25 cm`,
-            whatsapp: "https://wa.me/584127238412?text=Hola,%20estoy%20interesado%20en%20los%20capacillos%20de%cuadros",
+            whatsapp: "https://wa.me/584127238412?text=Hola,%20estoy%20interesado%20en%20los%20capacillos%20de%20cuadros",
             imagenes: [
                 "images/molde3-0.png",
                 "images/molde3-1.png",
@@ -132,20 +132,30 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
             article.classList.add('card', 'transition_3');
 
             article.innerHTML = `
-                <img src="${envase.imagenes[0]}" alt="${envase.titulo}" class="card-img">
+                <div class="card-img-container">
+                    <img src="${envase.imagenes[0]}" alt="${envase.titulo}" class="card-img" onload="this.classList.add('loaded')">
+                </div>
                 <div class="card-content">
                     <h3 class="card-title">${envase.titulo}</h3>
                     <p class="card-desc">${envase.desc}</p>
                     <button class="btn-detalles">Ver detalles</button>
                 </div>
             `;
+            const img = article.querySelector('.card-img');
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                });
+            }
 
             const btnDetalles = article.querySelector('.btn-detalles');
             btnDetalles.addEventListener('click', function(evento) {
                 evento.preventDefault();
 
                 if (modalTitulo) modalTitulo.textContent = envase.titulo;
-                if (modalDesc) modalDesc.innerHTML = envase.desc_detallada; // Carga la descripción detallada
+                if (modalDesc) modalDesc.innerHTML = envase.desc_detallada; 
                 if (modalWhatsapp) modalWhatsapp.href = envase.whatsapp;
 
                 imagenesActuales = envase.imagenes;
@@ -153,6 +163,13 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
                 actualizarCarrusel();
 
                 if (modalOverlay) modalOverlay.classList.add('activo');
+                
+                // Asegurar que los elementos del carrusel estén visibles
+                if (btnPrev) btnPrev.style.display = 'block';
+                if (btnNext) btnNext.style.display = 'block';
+                if (contador) contador.style.display = 'block';
+                if (modalDesc) modalDesc.style.display = 'block';
+                if (modalWhatsapp) modalWhatsapp.style.display = 'block';
             });
 
             gridContainer.appendChild(article);
@@ -171,17 +188,26 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
                 const tituloMinusculaGaleria = envase.titulo ? envase.titulo.toLowerCase() : "";
 
                 article.innerHTML = `
-                    <img src="${imgUrl}" alt="Molde ${envase.titulo} - Vista ${index + 1}" class="card-img galeria-trigger" style="cursor: pointer;">
+                    <div class="card-img-container">
+                        <img src="${imgUrl}" alt="Molde ${envase.titulo} - Vista ${index + 1}" class="card-img galeria-trigger" style="cursor: pointer;" onload="this.classList.add('loaded')">
+                    </div>
                     <div class="galeria-card-content">
                         <h3 class="galeria-card-title">Molde ${tituloMinusculaGaleria}</h3>
                     </div>
                 `;
                 // Al hacer clic en la imagen de la galería, se abre el modal existente adaptado
                 const imgTrigger = article.querySelector('.galeria-trigger');
+                if (imgTrigger.complete) {
+                    imgTrigger.classList.add('loaded');
+                } else {
+                    imgTrigger.addEventListener('load', () => {
+                        imgTrigger.classList.add('loaded');
+                    });
+                }
+
                 imgTrigger.addEventListener('click', () => {
                     if (carruselImg && modalOverlay) {
                         carruselImg.src = imgUrl;
-                        // Adaptamos el modal de la galería ocultando controles de carrusel/whatsapp que no aplican aquí
                         if (modalTitulo) modalTitulo.textContent = `Molde ${tituloMinusculaGaleria} - Vista ${index + 1}`;
                         if (modalDesc) modalDesc.style.display = 'none';
                         if (modalWhatsapp) modalWhatsapp.style.display = 'none';
@@ -209,22 +235,22 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
 
     function actualizarCarrusel() {
         if (!carruselImg) return;
-        carruselImg.style.opacity = "0";
-        setTimeout(() => {
-            carruselImg.src = imagenesActuales[indiceActual];
-            if (contador) {
-                contador.textContent = `${indiceActual + 1} / ${imagenesActuales.length}`;
-            }
-            carruselImg.style.opacity = "1";
-        }, 200);
-    }
+        
+        carruselImg.classList.remove('loaded');
+        carruselImg.src = imagenesActuales[indiceActual];
+        
+        if (contador) {
+            contador.textContent = `${indiceActual + 1} / ${imagenesActuales.length}`;
+        }
 
-    if (btnNext) {
-        btnNext.addEventListener('click', () => {
-            if (imagenesActuales.length === 0) return;
-            indiceActual = (indiceActual + 1) % imagenesActuales.length;
-            actualizarCarrusel();
-        });
+        // Forzar la verificación de carga para desvanecer la imagen suavemente
+        if (carruselImg.complete) {
+            carruselImg.classList.add('loaded');
+        } else {
+            carruselImg.onload = () => {
+                carruselImg.classList.add('loaded');
+            };
+        }
     }
 
     if (btnPrev) {
@@ -235,6 +261,14 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
         });
     }
 
+    if (btnNext) {
+        btnNext.addEventListener('click', () => {
+            if (imagenesActuales.length === 0) return;
+            indiceActual = (indiceActual + 1) % imagenesActuales.length;
+            actualizarCarrusel();
+        });
+    }
+    
     if (btnCerrar && modalOverlay) {
         btnCerrar.addEventListener('click', () => {
             modalOverlay.classList.remove('activo');

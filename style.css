@@ -49,15 +49,13 @@ body {
 }
 
 .header-left h1 {
-  margin-left: 2rem;
-  margin-top: 1rem;
-  padding-right: 140px;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .header-left p {
-  margin-left: 2rem;
+  text-align: center;
   margin-top: 1rem;
-  padding-right: 140px;
 }
 
 .header-text {
@@ -73,6 +71,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   transform: translateX(-0.4rem);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo-eslogan {
@@ -117,8 +116,8 @@ body {
   background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-  border: 1px solid #F0E6D8;
+  box-shadow: 0 2px 12px 0.09rem #575757b2;
+  border: 0.15rem solid var(--primary-gold);
   display: flex;
   flex-direction: column;
 }
@@ -128,14 +127,36 @@ body {
   box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
-.card-img {
+.card-img-container {
   width: 100%;
   height: 200px;
+  background-color: #e5e7eb;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 200px 100%;
+  animation: shimmerEffect 1.5s infinite linear;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes shimmerEffect {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  background-color: #EEE;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
   user-select: none;
   pointer-events: none;
   -webkit-user-drag: none;
+}
+
+.card-img.loaded {
+  opacity: 1;
 }
 
 .card-content {
@@ -205,6 +226,45 @@ body {
   overflow-x: hidden;
   height: 230px;
   padding-right: 5px;
+}
+
+.modal-img-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #414141; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrusel-inner-container {
+  height: 100%;
+  width: auto;
+  aspect-ratio: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e7eb;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 200px 100%;
+  animation: shimmerEffect 1.5s infinite linear;
+  position: relative;
+  overflow: hidden;
+}
+
+.carrusel-inner-container .carrusel-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.carrusel-inner-container .carrusel-img.loaded {
+  opacity: 1;
 }
 
 .modal-overlay.activo {
@@ -417,12 +477,18 @@ footer a:hover {
 .caida-menu {
   background-color: #FFFDF9;
   color: #fdbc16;
-  padding: 0.4rem 1.15rem 0.4rem 1.15rem;
-  font-size: 1.2rem;
+  padding: 0.55rem 2.4rem 0.55rem 1.16rem;
+  font-size: 1.3rem;
   border: solid transparent;
-  border-radius: 0.15rem; 
+  border-radius: 0px 40px 40px 0px; 
   cursor: pointer;
   text-align: left;
+}
+
+.caida-menu:hover {
+  background-color: #ffffff;
+  transform: translateY(2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .contenido-menu {
@@ -436,14 +502,14 @@ footer a:hover {
   max-height: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(0px);
+  transform: translateY(2px);
   transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, padding 0.5s ease;
   z-index: 100;
 }
 
 .contenido-menu.activo {
   width: 100%;
-  max-height: 150px;
+  max-height: 152px;
   opacity: 1;
   visibility: visible;
 }
@@ -460,7 +526,7 @@ footer a:hover {
 }
 
 .contenido-menu a:hover {
-  background-color: #ffffff2d;
+  background-color: #fcc74362;
 }
 
 .menu-whatsapp {
@@ -527,9 +593,17 @@ footer a:hover {
   .grid {
     grid-template-columns: 1fr;
   }
-  .header-left h1, p {
+  .header-left h1 {
+    text-align: left;
     margin-left: 1.5rem;
-    margin-top: 1rem;
+    margin-top: 2.7rem;
+    padding-right: 130px;
+  }
+  .header-left p {
+    text-align: left;
+    margin-left: 1.5rem;
+    margin-top: 1.6rem;
+    padding-right: 30px;
   }
 
   .menu {
