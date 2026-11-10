@@ -19,16 +19,16 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
 • #12         Base de 5.5 cm     3.25 cm`,
             whatsapp: "https://wa.me/584127238412?text=Hola,%20estoy%20interesado%20en%20los%20capacillos",
             imagenes: [
-                "images/molde1-0.png",
-                "images/molde1-1.png",
-                "images/molde1-2.png",
-                "images/molde1-3.png",
-                "images/molde1-4.png",
-                "images/molde1-5.png",
-                "images/molde1-6.png",
-                "images/molde1-7.png",
-                "images/molde1-8.png",
-                "images/molde1-9.png"
+                "images/molde1-0.jpg",
+                "images/molde1-1.jpg",
+                "images/molde1-2.jpg",
+                "images/molde1-3.jpg",
+                "images/molde1-4.jpg",
+                "images/molde1-5.jpg",
+                "images/molde1-6.jpg",
+                "images/molde1-7.jpg",
+                "images/molde1-8.jpg",
+                "images/molde1-9.jpg"
             ]
         },
         {
@@ -49,16 +49,16 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
 • #12         Base de 5.5 cm     3.25 cm`,
             whatsapp: "https://wa.me/584127238412?text=Hola,%20estoy%20interesado%20en%20los%20capacillos%20de%20colores",
             imagenes: [
-                "images/molde2-0.png",
-                "images/molde2-1.png",
-                "images/molde2-2.png",
-                "images/molde2-3.png",
-                "images/molde2-4.png",
-                "images/molde2-5.png",
-                "images/molde2-6.png",
-                "images/molde2-7.png",
-                "images/molde2-8.png",
-                "images/molde2-9.png"
+                "images/molde2-0.jpg",
+                "images/molde2-1.jpg",
+                "images/molde2-2.jpg",
+                "images/molde2-3.jpg",
+                "images/molde2-4.jpg",
+                "images/molde2-5.jpg",
+                "images/molde2-6.jpg",
+                "images/molde2-7.jpg",
+                "images/molde2-8.jpg",
+                "images/molde2-9.jpg"
             ]
         },
         {
@@ -79,16 +79,16 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
 • #12         Base de 5.5 cm     3.25 cm`,
             whatsapp: "https://wa.me/584127238412?text=Hola,%20estoy%20interesado%20en%20los%20capacillos%20de%20cuadros",
             imagenes: [
-                "images/molde3-0.png",
-                "images/molde3-1.png",
-                "images/molde3-2.png",
-                "images/molde3-3.png",
-                "images/molde3-4.png",
-                "images/molde3-5.png",
-                "images/molde3-6.png",
-                "images/molde3-7.png",
-                "images/molde3-8.png",
-                "images/molde3-9.png"
+                "images/molde3-0.jpg",
+                "images/molde3-1.jpg",
+                "images/molde3-2.jpg",
+                "images/molde3-3.jpg",
+                "images/molde3-4.jpg",
+                "images/molde3-5.jpg",
+                "images/molde3-6.jpg",
+                "images/molde3-7.jpg",
+                "images/molde3-8.jpg",
+                "images/molde3-9.jpg"
             ]
         }
     ];
