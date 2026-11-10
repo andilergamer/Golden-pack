@@ -160,6 +160,7 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
 
                 imagenesActuales = envase.imagenes;
                 indiceActual = 0;
+                precargarImagenes(imagenesActuales);
                 actualizarCarrusel();
 
                 if (modalOverlay) modalOverlay.classList.add('activo');
@@ -232,6 +233,13 @@ Tenemos tamaños que abarcan desde el número 6 al 12 con las siguientes medidas
             transition_3[i].style.transform = "translateY(0)";
         }
     }, 1200);
+
+    function precargarImagenes(listaUrls) {
+        listaUrls.forEach(url => {
+            const img = new Image();
+            img.src = url;
+        });
+    }
 
     function actualizarCarrusel() {
         if (!carruselImg) return;
